@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "game_service"
+		},
+		{
+			"path": "user_service"
+		},
+		{
+			"path": "server"
+		}
+	],
+	"settings": {}
+}
