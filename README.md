@@ -24,10 +24,10 @@ Handles core user operations and emits/consumes Kafka events.
 - `GET users/:id` – Get user by ID
 - `PUT users/:id` – Update user
 - `DELETE users/:id` – Delete user
-- `GET users/:id/read` – Notify that user data has been read
+- `GET users/:id/read` – Get history of games data that user has been read
 
-- `POST auth/login` – login
-- `GET auth/auth-test` – test middlewares JwtAuthentication
+- `POST auth/login` – Sign in and receive JWT access token
+- `GET auth/auth-test` – Test JWT Authentication middlewares
 
 #### Kafka Events:
 
@@ -36,7 +36,7 @@ Handles core user operations and emits/consumes Kafka events.
   - `user.deleted`
 
 - ✅ **Consumer**:
-  - `user.read` (sent by Game Service when user data is accessed)
+  - `user.read` (sent by Game Service when game data is read by a user)
 
 ---
 
@@ -46,9 +46,9 @@ Fetches game data from external APIs, uses Redis for caching, and listens to use
 
 #### REST Endpoints:
 
-- `GET /` – Get all games
-- `GET /:id` – Get game by ID
-- `POST /` – Notify that a user was read (trigger `user.read` event)
+- `GET games/` – Get all games
+- `GET games/:id` – Get game by ID
+- `POST games/` – Notify that a user was read (trigger `user.read` event)
 
 #### Kafka Events:
 
